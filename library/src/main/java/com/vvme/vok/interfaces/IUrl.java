@@ -1,11 +1,14 @@
-package com.vvme.vok.request;
+package com.vvme.vok.interfaces;
 
 /**
  * Project name:Vok
  * Author:VV
- * Created on 2018/6/4 16:26.
+ * Created on 2018/6/5 19:36.
  * Copyright (c) 2018, vvismile@163.com All Rights Reserved.
  * Description: TODO
  */
-public class VokRequest {
+public interface IUrl<T> {
+
+    T url(String url);
+
 }

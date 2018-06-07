@@ -7,5 +7,14 @@ package com.vvme.vok.callback;
  * Copyright (c) 2018, vvismile@163.com All Rights Reserved.
  * Description: TODO
  */
-public class VokCallback {
+public abstract class VokCallback<T> {
+
+    public abstract void onStart();
+
+    public abstract void onSuccess(T data);
+
+    public abstract void onError(Throwable throwable);
+
+    public abstract void onFailed(int code, String msg);
+
 }
