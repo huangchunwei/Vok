@@ -23,7 +23,7 @@ ext {
             design         : 'com.android.support:design:27.1.1' + rootProject.ext.android.dependenceVersion,
             okhttp         : 'com.squareup.okhttp3:okhttp:3.9.1',
             okio           : 'com.squareup.okio:okio:1.13.0',
-            gson           : 'com.google.code.gson:gson:2.8.2',
+            gson           : 'com.google.code.gson:gson:2.8.2'
     ]
 
     //./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
