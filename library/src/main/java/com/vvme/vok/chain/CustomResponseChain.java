@@ -10,9 +10,10 @@ import okhttp3.Response;
  * Author:VV
  * Created on 2018/6/6 17:01.
  * Copyright (c) 2018, vvismile@163.com All Rights Reserved.
- * Description: 注意这个接口需要自己处理response的所有逻辑,一般情况不建议自己处理,
- * 返回true表示交给系统处理,false表示自己处理.注意如果已经写有自己的逻辑,此时又返回true,
- * 则自己的逻辑和系统的都会执行,容易造成错乱,建议如果有自己的逻辑时返回false
+ * Description: Note that this interface needs to handle all the logic of response itself.
+ * Returning to true is given to the system processing, and false represents its own processing.
+ * Note that if you have written your own logic and then return to true at this time, your logic and system will be executed,
+ * easily causing confusion, and suggest returning false if you have your own logic.
  */
 public interface CustomResponseChain {
 

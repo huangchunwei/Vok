@@ -23,25 +23,19 @@ public final class ResponseChain {
         return new ResponseChain();
     }
 
-    /**
-     * 处理假数据
-     *
-     * @param response
-     * @param paramsModel
-     */
     public void fakeDataChain(Response response, ParamsModel paramsModel) {
         chain(null, response, paramsModel);
     }
 
     public void chain(Call call, Response response, ParamsModel paramsModel) {
         if (paramsModel != null) {
-            //当前请求专属响应拦截器
+            //Current request exclusive response interceptor
             if (paramsModel.getResponseChain() != null) {
                 if (!paramsModel.getResponseChain().chain(call, response, paramsModel, call == null)) {
                     return;
                 }
             }
-            //全局所有请求的响应拦截器
+            //Response interceptor for global all requests
             if (VokConfig.get().getResponseChain() != null) {
                 if (!VokConfig.get().getResponseChain().chain(call, response, paramsModel, call == null)) {
                     return;

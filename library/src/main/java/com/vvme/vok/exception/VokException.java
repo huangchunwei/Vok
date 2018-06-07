@@ -4,8 +4,8 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 /**
- * @author: hcw
- * @date 2018/3/6
+ * Author: hcw
+ * Date 2018/3/6
  */
 
 

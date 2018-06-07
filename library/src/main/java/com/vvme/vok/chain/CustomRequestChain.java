@@ -11,7 +11,7 @@ import okhttp3.Request;
  * Author:VV
  * Created on 2018/6/7 10:36.
  * Copyright (c) 2018, vvismile@163.com All Rights Reserved.
- * Description: 整个Request所有的构建过程自己处理,系统不处理
+ * Description: The whole Request process is handled by itself, and the system is not processed.
  */
 public interface CustomRequestChain {
 

@@ -17,6 +17,7 @@ android {
 }
 
 dependencies {
+    compileOnly rootProject.ext.dependencies.appCompat
     compileOnly rootProject.ext.dependencies.okhttp
     compileOnly rootProject.ext.dependencies.okio
     compileOnly rootProject.ext.dependencies.gson

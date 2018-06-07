@@ -49,7 +49,7 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
         if (call != null) {
             processRealResponse(call, response, mParamsModel);
         } else {
-            //假数据处理
+            //fake data processing
             processFakeResponse(response, mParamsModel);
         }
     }
@@ -63,7 +63,7 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
             ResponseHelper.sendError(new VokRequestFailedException("code: " + response.code()), paramsModel.getCallback());
             return;
         }
-        //处理结果
+        //process result
         try {
             if (paramsModel.getResponseProcessor() != null) {
                 paramsModel.getResponseProcessor().onResponse(paramsModel.getId(), response);
@@ -97,7 +97,7 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
     }
 
     private void processFakeResponse(Response response, ParamsModel paramsModel) {
-        //处理结果
+        //process result
         try {
             if (paramsModel.getResponseProcessor() != null) {
                 paramsModel.getResponseProcessor().onResponse(paramsModel.getId(), response);
@@ -137,21 +137,21 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
 
     @Override
     public Object parseResponse(int id, Response response, Type type) {
-        //解析结果
+        //parse result
         ResponseType responseType = mParamsModel.getResponseType();
         Object result = null;
         try {
             if (responseType.isString()) {
-                Log.d("Vok", "解析结果为String");
+                Log.d("Vok", "parse result type is String");
                 result = response.body().string();
             } else if (responseType.isBitmap()) {
-                Log.d("Vok", "解析结果为Bitmap");
+                Log.d("Vok", "parse result type is Bitmap");
                 result = decodeBitmap(response);
             } else if (responseType.isFile()) {
-                Log.d("Vok", "解析结果为File");
+                Log.d("Vok", "parse result type is File");
                 result = saveFile(id, response, mParamsModel);
             } else if (responseType.isJson()) {
-                Log.d("Vok", "解析结果为Json");
+                Log.d("Vok", "parse result type is Json");
                 Gson gson = new Gson();
                 result = gson.fromJson(response.body().string(), type);
             }
@@ -184,20 +184,20 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
             if (url != null) {
                 String path = url.url().getPath();
                 if (path != null) {
-                    //得到文件的后缀
+                    //get the file suffix.
                     String fileSuffix = path.substring(path.lastIndexOf("."));
                     if (fileName != null && !fileName.isEmpty()) {
                         fileName = fileName.trim();
                         if (!fileName.contains(".") || fileName.lastIndexOf(".") == fileName.length() - 1) {
-                            //没有设置文件后缀
+                            //no setting the file suffix.
                             if (fileName.indexOf(".") == fileName.length() - 1) {
                                 fileName = System.currentTimeMillis() + fileSuffix;
                             } else {
                                 fileName = fileName.concat(fileSuffix);
                             }
-                            Log.d("Vok", "需要设置后缀名为: " + fileSuffix);
+                            Log.d("Vok", "set the file suffix is: " + fileSuffix);
                         }
-                    }else{
+                    } else {
                         fileName = System.currentTimeMillis() + fileSuffix;
                     }
                 }
@@ -208,7 +208,7 @@ public class ResponseChainProxy extends ResponseParser implements ResponseProces
             File file = new File(dir, fileName);
             if (file.exists()) {
                 boolean del = file.delete();
-                Log.d("Vok", "文件删除 " + del);
+                Log.d("Vok", "delete file result is: " + del);
             }
             fos = new FileOutputStream(file);
             final long[] startTime = {System.currentTimeMillis()};

@@ -1,16 +1,16 @@
 package com.vvme.vok.constants;
 
 /**
- * @author: hcw
- * @date 2018/3/6
+ * Author: hcw
+ * Date 2018/3/6
  */
 
 
 public interface TxtConstant {
 
-    String NETWORK_UNUSED = "当前网络不可用，请检查网路设置";
-    String REQUEST_CANCELED = "请求已取消";
-    String REQUEST_SUCCESS = "请求成功";
-    String PROCESS_EXCEPTION = "处理出现异常.";
+    String NETWORK_UNUSED = "The current network is not available. Please check the network settings";
+    String REQUEST_CANCELED = "Request has been cancelled";
+    String REQUEST_SUCCESS = "Request success";
+    String PROCESS_EXCEPTION = "There was an exception in the process.";
 
 }

@@ -52,13 +52,13 @@ public class VokRequestDispatcher implements IDispatcher {
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    Log.d("Vok", "请求失败: " + e.getMessage());
+                    Log.d("Vok", "request failed: " + e.getMessage());
                     ResponseHelper.sendError(e, paramsModel.getCallback());
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    Log.d("Vok", "请求成功");
+                    Log.d("Vok", "request success");
                     ResponseChain.get().chain(call, response, paramsModel);
 
                 }

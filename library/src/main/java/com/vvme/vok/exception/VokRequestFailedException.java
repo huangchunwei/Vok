@@ -1,8 +1,8 @@
 package com.vvme.vok.exception;
 
 /**
- * @author: hcw
- * @date 2018/3/7
+ * Author: hcw
+ * Date 2018/3/7
  */
 
 

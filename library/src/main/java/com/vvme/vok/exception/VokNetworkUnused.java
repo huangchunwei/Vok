@@ -4,8 +4,8 @@ package com.vvme.vok.exception;
 import com.vvme.vok.constants.TxtConstant;
 
 /**
- * @author:hcw
- * @date 2018/3/6
+ * Author:hcw
+ * Date 2018/3/6
  */
 
 

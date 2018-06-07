@@ -1,5 +1,7 @@
 package com.vvme.vok.interfaces;
 
+import com.vvme.vok.chain.CustomResponseChain;
+import com.vvme.vok.parser.CustomResponseParser;
 import com.vvme.vok.response.ResponseProcessor;
 
 /**

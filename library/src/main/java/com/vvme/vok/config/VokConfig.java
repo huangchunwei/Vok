@@ -24,9 +24,9 @@ import okhttp3.OkHttpClient;
  */
 public class VokConfig {
 
-    private static final long DEFAULT_CONNECT_TIMEOUT = 15 * 1000;//单位:MS(毫秒)
-    private static final long DEFAULT_READ_TIMEOUT = 15 * 1000;//单位:MS(毫秒)
-    private static final long DEFAULT_WRITE_TIMEOUT = 15 * 1000;//单位:MS(毫秒)
+    private static final long DEFAULT_CONNECT_TIMEOUT = 15 * 1000;//unit:MS
+    private static final long DEFAULT_READ_TIMEOUT = 15 * 1000;//unit:MS
+    private static final long DEFAULT_WRITE_TIMEOUT = 15 * 1000;//unit:MS
 
     private static volatile VokConfig sVokConfig;
     private Builder mBuilder;

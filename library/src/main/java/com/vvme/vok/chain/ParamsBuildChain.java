@@ -15,8 +15,9 @@ import okhttp3.MultipartBody;
  * Author:VV
  * Created on 2018/6/6 10:44.
  * Copyright (c) 2018, vvismile@163.com All Rights Reserved.
- * Description: 不需要手动调用这两个方法,系统会自动调用,只需要自己在这两个方法中处理逻辑即可
- * 第一个方法:是普通的post请求,第二个方法为混合参数post请求
+ * Description: Instead of calling these two methods manually,
+ * the system will call automatically, only the first method is needed for yourself to process the logic in the two methods:
+ * the ordinary post request, and the second method for the mixed parameter post request
  */
 public interface ParamsBuildChain {
 

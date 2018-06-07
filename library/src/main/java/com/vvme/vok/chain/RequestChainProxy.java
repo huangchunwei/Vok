@@ -44,9 +44,9 @@ public class RequestChainProxy implements RequestBodyChain {
     public Request chain(@NonNull ParamsModel paramsModel) {
         mParamsModel = paramsModel;
         Log.d(TAG, "-------------RequestChain start-------------");
-        //1.构建请求参数&请求头参数
+        //1.Building request parameters & request header parameters
         Request.Builder builder = new Request.Builder();
-        //合并请求头
+        //Merge request header
         Log.d(TAG, "-------------RequestChain add Headers: -------------");
         if (paramsModel.getCustomHeaderChain() != null) {
             Headers headers = paramsModel.getCustomHeaderChain().headers(paramsModel.getHeaders());
@@ -86,7 +86,7 @@ public class RequestChainProxy implements RequestBodyChain {
             }
             builder.url(paramsModel.getUrl()).post(requestBody);
         } else {
-            // TODO: 2018/6/7 其他方式的请求 待处理
+            // TODO: 2018/6/7 Other forms of request to be treated
         }
         return builder.build();
     }
@@ -150,11 +150,11 @@ public class RequestChainProxy implements RequestBodyChain {
     @Override
     public RequestBody buildBody(@NonNull Request.Builder builder, @NonNull ParamsModel paramsModel) {
         RequestBody requestBody;
-        //这里需要处理普通的post 请求和上传文件的请求
+        //Here we need to deal with common post requests and requests for uploading files.
         if (paramsModel.getFileSources() != null && !paramsModel.getFileSources().isEmpty()) {
-            //文件上传或者混合请求
+            //File upload or mixed request
             MultipartBody.Builder multipartBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-            //自定义参数构建拦截器
+            //Custom parameter building interceptor
             if (paramsModel.getParamsBuildChain() != null) {
                 paramsModel.getParamsBuildChain().addParamsToRequestBody(multipartBuilder, paramsModel.getParams(), paramsModel.getFileSources());
             } else if (VokConfig.get().getParamsBuildChain() != null) {
@@ -168,9 +168,9 @@ public class RequestChainProxy implements RequestBodyChain {
             }
             requestBody = multipartBuilder.build();
         } else {
-            //普通post请求
+            //Common post request
             FormBody.Builder formBuilder = new FormBody.Builder();
-            //自定义参数构建连接器
+            //Custom parameters build connectors
             if (paramsModel.getParamsBuildChain() != null) {
                 paramsModel.getParamsBuildChain().addParamsToRequestBody(formBuilder, paramsModel.getParams());
                 requestBody = formBuilder.build();
@@ -189,7 +189,7 @@ public class RequestChainProxy implements RequestBodyChain {
         if (callback == null) {
             return requestBody;
         }
-        if (mParamsModel.getFileSources() == null || mParamsModel.getFileSources().isEmpty()) {//没有文件,只是普通的请求
+        if (mParamsModel.getFileSources() == null || mParamsModel.getFileSources().isEmpty()) {//No file, just an ordinary request
             return requestBody;
         }
         final long[] startTime = {System.currentTimeMillis()};
